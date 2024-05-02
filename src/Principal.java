@@ -1,20 +1,51 @@
+import screenmatchCalculos.CalculadoraDeTiempo;
+import screenmatchModelos.Pelicula;
+import screenmatchModelos.Serie;
 public class Principal {
     public static void main(String[] args) {
         Pelicula miPelicula = new Pelicula();
-        miPelicula.nombre = "Encanto";
-        miPelicula.fechaDeLanzamiento = 2021;
-        miPelicula.duracionEnMinutos = 102;
+        miPelicula.setNombre("Encanto");
+        miPelicula.setFechaDeLanzamiento(2021); 
+        miPelicula.setDuracionEnMinutos(102);
+        miPelicula.setIncluidoEnPlan(true);
 
-        System.out.println("Mi pelicula es: " + miPelicula.nombre);
-        System.out.println("Su fecha de lanzamiento es: " + miPelicula.fechaDeLanzamiento);
+        miPelicula.muestraFichaTecnica();
+        miPelicula.evaluar(8.0);
+        miPelicula.evaluar(9.0);
+        miPelicula.evaluar(10.0);
+
+        System.out.println("El total de evaluaciones es: " + miPelicula.getPuntuacionesTotales());
+        System.out.println("Puntuación promedio: " + miPelicula.puntuacionPromedio());
+        
+
+        System.out.println("*************************************");    
 
         Pelicula miSegundaPelicula = new Pelicula();
-        miSegundaPelicula.nombre = "Avengers";
-        miSegundaPelicula.fechaDeLanzamiento = 2022;
-        miSegundaPelicula.duracionEnMinutos = 120;
+        miSegundaPelicula.setNombre("Avengers"); 
+        miSegundaPelicula.setFechaDeLanzamiento(2022);
+        miSegundaPelicula.setDuracionEnMinutos(120);
 
-        System.out.println("Mi segunda pelicula es: " + miSegundaPelicula.nombre);
-        System.out.println("Su fecha de lanzamiento es: " + miSegundaPelicula.fechaDeLanzamiento);
-        System.out.println("Su duracion es: " + miSegundaPelicula.duracionEnMinutos);
+        miSegundaPelicula.muestraFichaTecnica();
+
+        System.out.println("*************************************");
+
+        Serie miSerie = new Serie();
+        miSerie.setNombre("Game of Thrones");
+        miSerie.setFechaDeLanzamiento(2011);
+        miSerie.setEpisodiosPorTemporada(8);
+        miSerie.setTemporadas(8);
+        miSerie.setMinutosPorEpisodio(55);
+        System.out.println(miSerie.getDuracionEnMinutos());
+
+        CalculadoraDeTiempo calculadora = new CalculadoraDeTiempo();
+        calculadora.incluye(miPelicula);
+        calculadora.incluye(miSegundaPelicula);
+        calculadora.incluye(miSerie);
+        System.out.println("Tiempo necesario para ver los titulos seleccionados: " + calculadora.getTiempoTotal() + " minutos");
+
+        miSerie.muestraFichaTecnica();
+
     }
 }
+
+
