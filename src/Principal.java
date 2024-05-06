@@ -1,4 +1,6 @@
 import screenmatchCalculos.CalculadoraDeTiempo;
+import screenmatchCalculos.FiltroRecomendaciones;
+import screenmatchModelos.Episodio;
 import screenmatchModelos.Pelicula;
 import screenmatchModelos.Serie;
 public class Principal {
@@ -44,6 +46,23 @@ public class Principal {
         System.out.println("Tiempo necesario para ver los titulos seleccionados: " + calculadora.getTiempoTotal() + " minutos");
 
         miSerie.muestraFichaTecnica();
+
+        System.out.println("*************************************");
+
+        FiltroRecomendaciones filtro = new FiltroRecomendaciones();
+        filtro.filtra(miPelicula);
+
+        System.out.println("*************************************");
+
+        Episodio episodio = new Episodio();
+        episodio.setNombre("Episodio 1");
+        episodio.setNumero(1);
+        episodio.setSerie(miSerie);
+        episodio.setTotalVisualizaciones(50);
+
+        filtro.filtra(episodio);
+        
+        
 
     }
 }
