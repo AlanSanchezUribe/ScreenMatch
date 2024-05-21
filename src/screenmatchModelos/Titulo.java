@@ -1,12 +1,22 @@
 package screenmatchModelos;
 
-public class Titulo {
+public class Titulo implements Comparable<Titulo> {
     private String nombre;
     private int fechaDeLanzamiento;
     private int duracionEnMinutos;
     private boolean incluidoEnPlan;
     private double sumaPuntuaciones;
     private int puntuacionesTotales;
+
+    public Titulo(String nombre, int fechaDeLanzamiento) {
+        this.nombre = nombre;
+        this.fechaDeLanzamiento = fechaDeLanzamiento;
+    }
+
+    @Override
+    public int compareTo(Titulo otroTitulo) {
+        return this.getNombre().compareTo(otroTitulo.getNombre());
+    } 
 
     public void setNombre(String nombre) {
         this.nombre = nombre;

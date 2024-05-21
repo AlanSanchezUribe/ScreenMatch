@@ -18,6 +18,16 @@ public int getCalificacion() {
     return (int) (puntuacionPromedio() / 2);
 }
 
+@Override
+public String toString() {
+    return "Pelicula: " + this.getNombre() + " (" + getFechaDeLanzamiento() + ")";
+}
+
+public Pelicula(String nombre, int fechaDeLanzamiento) {
+    super(nombre, fechaDeLanzamiento);
+    
+}
+
 }
 
 
